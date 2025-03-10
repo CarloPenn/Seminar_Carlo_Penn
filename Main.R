@@ -26,6 +26,11 @@ library(ggmosaic)
 library(nnet)
 library(randomForest)
 library(rpart)
+
+source("Multiclass.R")
+source("multiclass_mice.R")
+source("model_evaluation_alternative.R")
+source("appetency_prepare.R")
               
                     
 
