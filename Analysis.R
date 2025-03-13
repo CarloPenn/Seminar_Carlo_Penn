@@ -129,4 +129,15 @@ mean(prediction != test_data$superior)
 results$Difference_Cat_XG_logloss <- ((results$log_loss_xgb - results$log_loss_catboost) / results$log_loss_catboost)*100
 results$Difference_Cat_Light_logloss <- ((results$log_loss_lgb - results$log_loss_catboost) / results$log_loss_catboost)*100
 
+##### Excluding datasets with less thank 5k rows
 
+###### Multinomial model #####
+results_large_data <- results
+results_large_data$superior <- as.factor(results$superior)
+results_large_data$superior <- relevel(factor(results_large_data$superior), ref = "CatBoost")
+# Fit multinomial logistic regression model
+logit_model_large_data <- multinom(superior ~ Number_of_Features + Number_of_Rows + 
+                          Numerical_Features + Categorical_Features + task + Number_Missing_Values + sample_feature_ratio + missing_values_ratio + majority_class_percentage, 
+                        data = results_large_data)
+model_summary_large_data <- summary(logit_model_large_data)
+table(results_large_data$superior)
