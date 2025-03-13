@@ -76,7 +76,6 @@ eye_movement <- read.arff("data/eye_movement.arff")
 "
 
 
-##### Practice task on all datasets #####
 
 
 

@@ -10,9 +10,10 @@ if (!require("nnet", quietly = TRUE)) install.packages("nnet")
 table(results$superior)
 results$superior <- as.factor(results$superior)
 results$superior <- relevel(factor(results$superior), ref = "CatBoost")
+results$categorical_ratio <- results$Categorical_Features / results$Number_of_Features
 # Fit multinomial logistic regression model
 logit_model <- multinom(superior ~ Number_of_Features + Number_of_Rows + 
-                          Numerical_Features + Categorical_Features + task + Number_Missing_Values + sample_feature_ratio + missing_values_ratio + majority_class_percentage, 
+                           + categorical_ratio + task + Number_Missing_Values + sample_feature_ratio + missing_values_ratio + majority_class_percentage, 
                         data = results)
 model_summary <- summary(logit_model)
 # Manual computation of p-values
