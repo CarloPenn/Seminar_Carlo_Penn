@@ -34,7 +34,7 @@ p_values
 # Number of features
 plot_number_of_features <- ggplot(results, aes(x = log10(Number_of_Features), y = superior)) +
   geom_point() + ggtitle("Number of Features vs. Superior Model") +
-  labs(x = "Number of features", y = "Model") +
+  labs(x = "Number of features(log10-scaled)", y = "Model") +
   theme(plot.title = element_text(hjust = 0.5))  # Center the title
 ggsave("Bilder/number_of_features.png", plot = plot_number_of_features, width = 8, height = 6)
 
@@ -42,7 +42,7 @@ ggsave("Bilder/number_of_features.png", plot = plot_number_of_features, width = 
 # Number of rows
 plot_number_of_rows <- ggplot(results, aes(x = log10(Number_of_Rows), y = superior)) +
   geom_point() + ggtitle("Number of Rows  vs. Superior Model") +
-  labs(x = "Number of rows", y = "Model") +
+  labs(x = "Number of rows(log10-scaled)", y = "Model") +
   theme(plot.title = element_text(hjust = 0.5))  # Center the title
 ggsave("Bilder/number_of_rows.png", plot = plot_number_of_rows, width = 8, height = 6)
 
@@ -50,7 +50,7 @@ ggsave("Bilder/number_of_rows.png", plot = plot_number_of_rows, width = 8, heigh
 # Number of numerical features
 plot_number_of_numerical_features <- ggplot(results, aes(x = log10(Numerical_Features), y = superior)) +
   geom_point() + ggtitle("Number of numerical features vs. Superior Model") +
-  labs(x = "Number of numerical features", y = "Model") +
+  labs(x = "Number of numerical features(log10-scaled)", y = "Model") +
   theme(plot.title = element_text(hjust = 0.5))  # Center the title
 ggsave("Bilder/number_of_numerical_features.png", plot = plot_number_of_numerical_features, width = 8, height = 6)
 
@@ -58,7 +58,7 @@ ggsave("Bilder/number_of_numerical_features.png", plot = plot_number_of_numerica
 # Number of categorical features
 plot_number_categorical_features <- ggplot(results, aes(x = log10(Categorical_Features), y = superior)) +
   geom_point() + ggtitle("Number of categorical features vs. Superior Model") +
-  labs(x = "Number of categorical features", y = "Model") +
+  labs(x = "Number of categorical features(log10-scaled)", y = "Model") +
   theme(plot.title = element_text(hjust = 0.5))  # Center the title
 ggsave("Bilder/number_categorical_features.png", plot = plot_number_categorical_features, width = 8, height = 6)
 
@@ -79,7 +79,7 @@ ggsave("Bilder/task.png", plot = plot_task, width = 8, height = 6)
 plot_number_of_missing_values <- ggplot(results, aes(x = log10(Number_Missing_Values + 1), y = superior)) +
   geom_point() + ggtitle("Number of missing values vs. Superior Model") +
   xlim(0, 8) +
-  labs(x = "Number of missing values", y = "Model") +
+  labs(x = "Number of missing values(log10-scaled)", y = "Model") +
   theme(plot.title = element_text(hjust = 0.5))  # Center the title
 ggsave("Bilder/number_of_missing_values.png", plot = plot_number_of_missing_values, width = 8, height = 6)
 
@@ -87,7 +87,7 @@ ggsave("Bilder/number_of_missing_values.png", plot = plot_number_of_missing_valu
 # Sample feature ratio
 plot_sample_feature_ratio <- ggplot(results, aes(x = log10(sample_feature_ratio), y = superior)) +
   geom_point() + ggtitle("Sample-feature ratio vs. Superior Model") +
-  labs(x = "Sample-feature ratio", y = "Model") +
+  labs(x = "Sample-feature ratio(log10-scaled)", y = "Model") +
   theme(plot.title = element_text(hjust = 0.5))  # Center the title
 ggsave("Bilder/sample_feature_ratio.png", plot = plot_sample_feature_ratio, width = 8, height = 6)
 
@@ -106,6 +106,14 @@ plot_majority_class_percentage <- ggplot(results, aes(x = majority_class_percent
   labs(x = "Majority class percentage", y = "Model") +
   theme(plot.title = element_text(hjust = 0.5))  # Center the title
 ggsave("Bilder/majority_class_percentage.png", plot = plot_majority_class_percentage, width = 8, height = 6)
+
+plot_rows_features_superior <- ggplot(results, aes(x = log10(Number_of_Rows), y = log10(Number_of_Features), color = superior)) +
+  geom_point() + ggtitle("test") +
+  labs(x = "Number of rows(log10-scaled)", y = "Number of features(log10-scaled)") +
+  theme(plot.title = element_text(hjust = 0.5)) +  # Center the title
+  scale_color_manual(values = c("grey", "lightblue", "grey20"))   # Custom colors 
+  
+ggsave("Bilder/plot_rows_features_superior.png", plot = plot_rows_features_superior, width = 8, height = 6)
 
 
 ###### decision tree #####

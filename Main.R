@@ -52,28 +52,6 @@ for (file in file_list) {
   # Append the data to the combined dataset
   click <- rbind(click, data_chunk)
 }
-"adult <- read.arff("data/phpMawTba.arff")
-appetency <- read.arff("data/KDDCup09_appetency.arff")
-churn <- read.arff("data/churn.arff")
-Internet <- read.arff("data/phpPIHVvG.arff")
-upselling <- read.arff("data/upselling.arff")
-kick <- read.arff("data/kick.arff")
-anneal <- read.arff("data/dataset_1_anneal.arff")
-digits <- read.arff("data/dataset_28_optdigits.arff")
-bank_marketing <- read.arff("data/phpkIxskf.arff")
-blood_transfusion <- read.arff("data/php0iVrYT.arff")
-gas_concentration <- read.arff("data/phpN4gaxw.arff")
-car <- read.arff("data/php2jDIhh.arff")
-cover_type <- read.arff("data/phpQOf0wY.arff")
-qsar_biodeg <- read.arff("data/phpGUrE90.arff")
-gesture <- read.arff("data/phpYLeydd.arff")
-dresses <- read.arff("data/phpcFPMhq.arff")
-higgs <- read.arff("data/phpZLgL9q.arff")
-mice <- read.arff("data/phpchCuL5.arff")
-eye_movement <- read.arff("data/eye_movement.arff")
-
-
-"
 
 
 
